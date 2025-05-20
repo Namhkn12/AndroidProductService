@@ -21,6 +21,30 @@ public class SellingListDTO {
     public static class ProductSell {
         private ProductDTO product;
         private Integer amount;
+
+        public ProductDTO getProduct() {
+            return product;
+        }
+
+        public Integer getAmount() {
+            return amount;
+        }
+    }
+
+    public ShopDTO getShop() {
+        return shop;
+    }
+
+    public List<ProductSell> getSells() {
+        return sells;
+    }
+
+    public void setShop(ShopDTO shop) {
+        this.shop = shop;
+    }
+
+    public void setSells(List<ProductSell> sells) {
+        this.sells = sells;
     }
 }
 

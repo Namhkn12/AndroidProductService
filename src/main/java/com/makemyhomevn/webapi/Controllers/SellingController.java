@@ -17,10 +17,10 @@ public class SellingController {
     @Autowired
     private SellingService sellingService;
 
-    @GetMapping("/shop/{id}")
-    public SellingListDTO viewShopSelling(@PathVariable("id") Integer id){
-        return sellingService.getSellingByShopId(id);
-    }
+//    @GetMapping("/shop/{id}")
+//    public SellingListDTO viewShopSelling(@PathVariable("id") Integer id){
+//        return sellingService.getSellingByShopId(id);
+//    }
 
     @GetMapping("/product/{id}")
     public List<SellingDTO> getSellingByProduct(@PathVariable("id") Integer id) {

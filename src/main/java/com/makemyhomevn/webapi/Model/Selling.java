@@ -22,5 +22,21 @@ public class Selling {
     private Product product;
 
     private int amount;
+
+    public Integer getSellingId() {
+        return sellingId;
+    }
+
+    public Shop getShop() {
+        return shop;
+    }
+
+    public Product getProduct() {
+        return product;
+    }
+
+    public int getAmount() {
+        return amount;
+    }
 }
 

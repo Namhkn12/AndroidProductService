@@ -18,5 +18,25 @@ public class Shop {
 
     @OneToMany(mappedBy = "shop")
     private List<Selling> sellings;
+
+    public Integer getShopId() {
+        return shopId;
+    }
+
+    public String getShopPhoneNumber() {
+        return shopPhoneNumber;
+    }
+
+    public String getShopLocation() {
+        return shopLocation;
+    }
+
+    public String getShopName() {
+        return shopName;
+    }
+
+    public List<Selling> getSellings() {
+        return sellings;
+    }
 }
 

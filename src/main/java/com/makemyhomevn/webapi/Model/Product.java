@@ -11,9 +11,9 @@ public class Product {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer productId;
-
     private String productName;
-    @OneToOne(mappedBy = "categoryId")
+    @ManyToOne
+    @JoinColumn(name = "category_id")
     private Category productCategory;
     private String productDescription;
     private Long productCost;
@@ -21,4 +21,32 @@ public class Product {
 
     @OneToMany(mappedBy = "product")
     private List<Selling> sellings;
+
+    public Integer getProductId() {
+        return productId;
+    }
+
+    public String getProductName() {
+        return productName;
+    }
+
+    public Category getProductCategory() {
+        return productCategory;
+    }
+
+    public String getProductDescription() {
+        return productDescription;
+    }
+
+    public Long getProductCost() {
+        return productCost;
+    }
+
+    public String getImagePath() {
+        return imagePath;
+    }
+
+    public List<Selling> getSellings() {
+        return sellings;
+    }
 }

@@ -6,10 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.nio.file.Files;
 import java.nio.file.Path;
@@ -51,4 +48,20 @@ public class ProductController {
             return ResponseEntity.internalServerError().body("Error getting product image: " + e.getMessage());
         }
     }
+
+    @GetMapping("/popular")
+    public List<ProductDTO> getRandomProduct() {
+        return productService.getRandomProduct();
+    }
+
+    @GetMapping("/category/{id}")
+    public List<ProductDTO> getProductByCategory(@PathVariable("id") int id) {
+        return productService.getProductByCategory(id);
+    }
+
+    @GetMapping("/search")
+    public List<ProductDTO> searchProduct(@RequestParam("query") String query, @RequestParam(value = "category", required = false) List<Integer> categories) {
+        return productService.searchProduct(query, categories);
+    }
+
 }

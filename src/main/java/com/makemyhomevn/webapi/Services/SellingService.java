@@ -21,24 +21,24 @@ public class SellingService {
     @Autowired
     public ModelMapper modelMapper;
 
-    public SellingListDTO getSellingByShopId(Integer shopId) {
-        List<Selling> sellingList = sellingRepository.findByShopShopId(shopId);
-
-        if (sellingList.isEmpty()) {
-            return null;
-        }
-
-        ShopDTO shopDTO = modelMapper.map(sellingList.get(0).getShop(), ShopDTO.class);
-
-        List<SellingListDTO.ProductSell> productSells = sellingList.stream()
-                .map(selling -> {
-                    ProductDTO productDTO = modelMapper.map(selling.getProduct(), ProductDTO.class);
-                    return new SellingListDTO.ProductSell(productDTO, selling.getAmount());
-                })
-                .collect(Collectors.toList());
-
-        return new SellingListDTO(shopDTO, productSells);
-    }
+//    public SellingListDTO getSellingByShopId(Integer shopId) {
+//        List<Selling> sellingList = sellingRepository.findByShopShopId(shopId);
+//
+//        if (sellingList.isEmpty()) {
+//            return null;
+//        }
+//
+//        ShopDTO shopDTO = modelMapper.map(sellingList.get(0).getShop(), ShopDTO.class);
+//
+//        List<SellingListDTO.ProductSell> productSells = sellingList.stream()
+//                .map(selling -> {
+//                    ProductDTO productDTO = modelMapper.map(selling.getProduct(), ProductDTO.class);
+//                    return new SellingListDTO.ProductSell(productDTO, selling.getAmount());
+//                })
+//                .collect(Collectors.toList());
+//
+//        return new SellingListDTO(shopDTO, productSells);
+//    }
 
     public List<SellingDTO> getSellingByProduct(Integer id) {
         List<Selling> sellingList = sellingRepository.findAll();

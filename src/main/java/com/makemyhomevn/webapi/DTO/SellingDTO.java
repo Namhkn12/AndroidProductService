@@ -12,9 +12,33 @@ import lombok.Setter;
 @Setter
 @AllArgsConstructor
 public class SellingDTO {
-    private Shop shop;
+    private ShopDTO shop;
 
-    private Product product;
+    private ProductDTO product;
 
     private int amount;
+
+    public ShopDTO getShop() {
+        return shop;
+    }
+
+    public ProductDTO getProduct() {
+        return product;
+    }
+
+    public int getAmount() {
+        return amount;
+    }
+
+    public void setShop(ShopDTO shop) {
+        this.shop = shop;
+    }
+
+    public void setProduct(ProductDTO product) {
+        this.product = product;
+    }
+
+    public void setAmount(int amount) {
+        this.amount = amount;
+    }
 }
